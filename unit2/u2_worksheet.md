@@ -124,6 +124,7 @@ administration of Linux systems in some way.
 
 SELinux (Security-Enhanced Linux):
   - A security architecture for linux that allows administrators to have more
+  :q
   control over who can access the system.
   - Defines acces controls for the applications, processes, and files on a system
   - SELinux checks permissions with an Access Vector Cache (AVC) upon request
