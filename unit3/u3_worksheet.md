@@ -146,6 +146,9 @@ Mean Time between Failures (MTBF):
 1. If uptime is so important to us, why is it so important to use to also understand
 how our systems can fail? Why would we focus on the thing that does not drive uptime?
 
+Its exacty the thing that drives uptime. If you don't know how a system can fail,
+you wont know how to prevent those failures.1
+
 2. Start reading about SLOs: (Implementing SLOs)[https://sre.google/workbook/implementing-slos/]
 How does this help you operationally? Does it make sense that keeping systems within
 defined parameters will help keep them operating longer?
