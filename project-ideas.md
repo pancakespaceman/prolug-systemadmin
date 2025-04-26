@@ -111,3 +111,21 @@ Documentation: Keep detailed records of your setup process, configurations, and 
 Diagrams: Use tools like Draw.io or Excalidraw to create clear diagrams of your system architecture.
 
 Presentation: Prepare a slide deck (15-20 slides) covering your project's purpose, architecture, implementation, challenges faced, and lessons learned. Tools like Overleaf can help create professional-looking presentations.
+
+
+---
+
+
+
+Notes of the entire course.
+Full deploy with Ansible of prometheus, and Grafana.
+Proxmox deployment with terraform and packer.
+I want someone to do something cool with AIDE
+Proxmox terraform/packer
+
+
+
+AIDE is my project!!!!!!
+
+
+https://etherpad.mailbox.org/p/fffbcfcb-11cb-4af5-b410-c14c72261eaf
