@@ -116,7 +116,7 @@ Benchmarking Iteration
 
 Plan phase:
 	1. Goals identification
-	2. Tols and metrics identification
+	2. Tools and metrics identification
 	3. Planning and resource allocation
 
 Experiment Phase:

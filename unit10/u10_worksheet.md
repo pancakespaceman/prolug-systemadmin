@@ -70,19 +70,24 @@ Test_Cluster3   Ready       worker                 17h   v1.28.6+k3s1
 1. How would you validate the error?
 
 ```
+I would use this command to get information about the node.
 
+kubectl describe node Test_Cluster2
+kubectl get pods -A
 ```
 
 2. What do you suspect is causing the problem?
 
 ```
-
+Without seeing more about the node, first glance shows that there could be an issue
+with the versioning. There may be a problem with version 1.29.6.
 ```
 
-3. Has someone already attempted to fix this problem?> Why or why not?
+3. Has someone already attempted to fix this problem? Why or why not?
 
 ```
-
+Yes, there has been some interaction with the problem node. Its AGE is only
+33m compared to the other nodes which are 17h.
 ```
 
 ### 3
@@ -95,26 +100,73 @@ monitoring development, test, and QA Kubernetes clusters.
 Write a basic cluster health check procedure for new NOC personnel.
 
 ```
+0. Write down any and all anomalies, and escalate once health check is finished
+if issues exist.
+
+1. Ensure correct cluster connection and context
+This confirms the API server is responding correctly and lists available
+contexts. If multiple contexts are present, then this health check should be
+performed on each context.
+Run:
+	- `kubectl config get-contexts`
+		- Confirm all contexts are showing that should be.
+	- `kubectl config use-context <insert_desired_context>`
+		- connect to a context.
+	- `kubectl cluster-info`
+
+2. Check Node Health
+Run:
+	- `kubectl get nodes -o wide`
+		- All Nodes should be in `Ready` state
+		- Check uptime and other info for anomalies
+
+3. Check Pod Health
+Run:
+	- `kubectl get pods --all-namesaces -o wide`
+		- All pods should be `Running`
+
+4. Check Resource Usage
+Run:
+	- `kubectl top nodes`
+	- `kubectl top pods --all-namespaces`
+		- Look for higher CPU or Memory usage than normal
+
+5. Review Cluster Events
+Run:
+	- `kubectl get events --all-namespaces --sort-by='.metadata.creationTimestamp'`
+		- Look for errors such as `OOMKilled`, `FailedScheduling`, `FailedMount`,
+		and Node pressure warnings
+
 
 ```
 
 1. What online resources did you use to figure this out?
 
 ```
-
+(Apptio Kubernetes Health Check)[https://www.apptio.com/blog/kubernetes-health-check/]
+(Kube By Example Health Checks)[https://kubebyexample.com/concept/health-checks]
+(Kubernetes Offical Documentation)[https://kubernetes.io/docs/home/]
+ChatGPT as well to tie things together.
 ```
 
 2. What did you learn during this process?
 
 ```
+There are three kinds of health checks (aka probes).
+	- Liveness probes detect a non-responsive application.
+	- Readiness probes ensure that a service is ready to receive traffic.
+	- Startup probes identify and delay application startup until it's prepared
+	to handle requests.
 
+
+Kubernetes hurts my brain.
 ```
 
 ### Responses
 
-[] Post 1
-[] Post 2
-[] Post 3
+[x] Post 1
+[x] Post 2
+[x] Post 3
 
 
 ## Key Terminology & Definitions
