@@ -35,7 +35,7 @@ The lab has been provided for convenience below:
    - a. How does it tie into the diagram below?
    - b. What could you improve, or what would you change based on your previous administration experience.
 
-![Lab Monitoring Diagram](https://github.com/ProfessionalLinuxUsersGroup/img/blob/main/Assets/Dia/lma.png)
+![Lab Monitoring Diagram](./lma.png)
 
 ### Conclusion
 
